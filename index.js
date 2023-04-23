@@ -5,8 +5,8 @@ const app = express();
 
 // Configure AWS SDK
 const s3 = new AWS.S3({
-  accessKeyId: 'AKIA5NILZRU5CZGEGPVM',
-  secretAccessKey: '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'
+  accessKeyId: 'ACCESS_KEY_ID',
+  secretAccessKey: 'SECRET_ACCESS_KEY'
 });
 
 // Configure Multer middleware
@@ -24,7 +24,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
   const file = req.file;
 
   const params = {
-    Bucket: 'my-upload-bucket-v1',
+    Bucket: 'BUCKET_NAME',
     Key: file.originalname,
     Body: file.buffer
   };
